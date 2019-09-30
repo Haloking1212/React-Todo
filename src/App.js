@@ -56,7 +56,7 @@ class App extends React.Component {
 
   clearPurchased = () => {
     this.setState({
-      todo: this.state.todo.filter(item => !item.completed)
+      todo: this.state.todo.filter(item => item.completed === false)
     });
   };
   
@@ -66,7 +66,8 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addItem={this.addItem}/>
-        <TodoList todo={this.state.todo}
+        <TodoList clearPurchased={this.clearPurchased}
+                  todo={this.state.todo}
                   toggleItem={this.toggleItem}/>
       </div>
     );
